@@ -15,7 +15,7 @@ const Navbar = async ({}) => {
       <Container>
         <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center">
           <Link href={`/`} className="mr-4 flex lg:ml-0 gap-x-2">
-            <p className="font-bold text-xl uppercase">Store</p>
+            <p className="font-bold text-xl uppercase">Reserved</p>
           </Link>
           <MainNav data={categories} />
           <NavbarActions />

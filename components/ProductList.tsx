@@ -12,9 +12,9 @@ const ProductList: React.FC<ProductListProps> = ({ products, title }) => {
   return (
     <div className="space-y-4">
       <h3 className="font-bold text-3xl">{title}</h3>
-      {!!products.length && <NoResults />}
+      {products.length === 0 && <NoResults />}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {products.map((product) => (
+        {products.length !== 0 && products.map((product) => (
           <ProductCard product={product} key={product.id} />
         ))}
       </div>
