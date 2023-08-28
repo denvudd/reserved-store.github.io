@@ -22,9 +22,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Navbar/>
-      <body className={urbanist.className}>{children}</body>
-      <Footer />
+      <body className={urbanist.className}>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
