@@ -20,6 +20,8 @@ interface PageProps {
   };
 }
 
+export const revalidate = 0;
+
 const Page: React.FC<PageProps> = async ({ params, searchParams }) => {
   const { categoryId } = params;
   const { colorId, sizeId } = searchParams;

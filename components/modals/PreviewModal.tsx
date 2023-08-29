@@ -5,10 +5,13 @@ import React from "react";
 import Modal from "../ui/Modal";
 import Gallery from "../gallery/Gallery";
 import ProductInfo from "../ProductInfo";
+import Button from "../ui/Button";
+import { useRouter } from "next/navigation";
 
 const PreviewModal: React.FC = ({}) => {
   const { isOpen, onClose, onOpen } = usePreviewModal();
   const product = usePreviewModal((state) => state.product);
+  const router = useRouter();
 
   if (!product) return null;
 
@@ -20,6 +23,15 @@ const PreviewModal: React.FC = ({}) => {
         </div>
         <div className="sm:col-span-8 lg:col-span-7">
           <ProductInfo product={product} />
+          <Button
+            className="flex items-center gap-x-2 mt-4"
+            onClick={() => {
+              onClose();
+              router.push(`/product/${product.id}`);
+            }}
+          >
+            Details
+          </Button>
         </div>
       </div>
     </Modal>
