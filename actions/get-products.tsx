@@ -22,7 +22,6 @@ export const getProducts = async (query: Query): Promise<Product[]> => {
   });
 
   const res = await fetch(url);
-  console.log(url);
 
   return res.json();
 };
