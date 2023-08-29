@@ -1,6 +1,7 @@
 "use client";
 
 import CartProduct from "@/components/cart/CartProduct";
+import Summary from "@/components/cart/Summary";
 import Container from "@/components/ui/Container";
 import { useCart } from "@/hooks/use-cart";
 import { useIsComponentMounted } from "@/hooks/use-is-component-mounted";
@@ -30,6 +31,7 @@ const Page: React.FC<PageProps> = ({}) => {
                 ))}
               </ul>
             </div>
+            <Summary />
           </div>
         </div>
       </Container>
