@@ -5,7 +5,7 @@ import { toast } from "sonner";
 
 interface CartStore {
   products: Product[];
-  addItem: (product: Product) => void;
+  addProduct: (product: Product) => void;
   removeItem: (id: string) => void;
   removeAll: () => void;
 }
@@ -14,7 +14,7 @@ export const useCart = create(
   persist<CartStore>(
     (set, get) => ({
       products: [],
-      addItem: (product: Product) => {
+      addProduct: (product: Product) => {
         const currentProducts = get().products;
         const existingProduct = currentProducts.find(
           (currentProduct) => currentProduct.id === product.id
