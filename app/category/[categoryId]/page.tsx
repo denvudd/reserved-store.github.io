@@ -5,6 +5,8 @@ import { getSizes } from "@/actions/get-sizes";
 import Billboard from "@/components/Billboard";
 import Filter from "@/components/Filter";
 import Container from "@/components/ui/Container";
+import NoResults from "@/components/ui/NoResults";
+import ProductCard from "@/components/ui/ProductCard";
 import React from "react";
 
 interface PageProps {
@@ -39,6 +41,15 @@ const Page: React.FC<PageProps> = async ({ params, searchParams }) => {
             {/* TODO: Mobile filters */}
             <div className="hidden lg:block">
               <Filter valueKey="sizeId" name="Sizes" data={sizes} />
+              <Filter valueKey="colorId" name="Colors" data={colors} />
+            </div>
+            <div className="mt-6 lg:col-span-4">
+              {!products.length && <NoResults />}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {products.map((product) => (
+                  <ProductCard product={product} key={product.id} />
+                ))}
+              </div>
             </div>
           </div>
         </div>

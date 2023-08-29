@@ -22,6 +22,11 @@ export const getProducts = async (query: Query): Promise<Product[]> => {
   });
 
   const res = await fetch(url);
+  const res1 = await fetch(
+    "https://reserved-dashboard.vercel.app/api/store/271539f5-7706-4784-ba79-f4ed06cfe138/products?categoryId=4fbd8eeb-65f2-45be-8948-e7e4eeb93cd6"
+  )
+    .then((data) => data.url)
+    .then((data) => console.log(data));
 
   return res.json();
 };
