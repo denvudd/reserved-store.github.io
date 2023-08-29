@@ -4,7 +4,7 @@ import { type Color, type Size } from "@/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import qs from "query-string";
 import React from "react";
-import Button from "./ui/Button";
+import Button from "../ui/Button";
 import { cn } from "@/lib/utils";
 
 interface FilterProps {

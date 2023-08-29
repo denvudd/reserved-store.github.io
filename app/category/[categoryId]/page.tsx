@@ -3,7 +3,8 @@ import { getColors } from "@/actions/get-colors";
 import { getProducts } from "@/actions/get-products";
 import { getSizes } from "@/actions/get-sizes";
 import Billboard from "@/components/Billboard";
-import Filter from "@/components/Filter";
+import Filter from "@/components/filters/Filter";
+import MobileFilters from "@/components/filters/MobileFilters";
 import Container from "@/components/ui/Container";
 import NoResults from "@/components/ui/NoResults";
 import ProductCard from "@/components/ui/ProductCard";
@@ -38,7 +39,7 @@ const Page: React.FC<PageProps> = async ({ params, searchParams }) => {
         <Billboard billboard={category.billboard} labelRequired={false} />
         <div className="px-4 sm:px-6 lg:px-8 pb-24">
           <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
-            {/* TODO: Mobile filters */}
+            <MobileFilters sizes={sizes} colors={colors} />
             <div className="hidden lg:block">
               <Filter valueKey="sizeId" name="Sizes" data={sizes} />
               <Filter valueKey="colorId" name="Colors" data={colors} />
