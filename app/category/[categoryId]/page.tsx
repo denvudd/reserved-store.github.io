@@ -3,6 +3,7 @@ import { getColors } from "@/actions/get-colors";
 import { getProducts } from "@/actions/get-products";
 import { getSizes } from "@/actions/get-sizes";
 import Billboard from "@/components/Billboard";
+import Filter from "@/components/Filter";
 import Container from "@/components/ui/Container";
 import React from "react";
 
@@ -37,7 +38,7 @@ const Page: React.FC<PageProps> = async ({ params, searchParams }) => {
           <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
             {/* TODO: Mobile filters */}
             <div className="hidden lg:block">
-              
+              <Filter valueKey="sizeId" name="Sizes" data={sizes} />
             </div>
           </div>
         </div>
