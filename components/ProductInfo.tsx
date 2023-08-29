@@ -3,6 +3,7 @@ import React from "react";
 import Currency from "./ui/Currency";
 import Button from "./ui/Button";
 import { ShoppingCart } from "lucide-react";
+import CartButton from "./ui/CartButton";
 
 interface ProductInfoProps {
   product: Product;
@@ -31,9 +32,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
           ></div>
         </div>
         <div className="mt-10 flex items-center gap-x-3">
-          <Button className="flex items-center gap-x-2">
-            Add to cart <ShoppingCart />
-          </Button>
+          <CartButton product={product} />
         </div>
       </div>
     </>
