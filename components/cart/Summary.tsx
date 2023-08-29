@@ -7,9 +7,10 @@ import React from "react";
 import Currency from "../ui/Currency";
 import { useCart } from "@/hooks/use-cart";
 import { useSearchParams } from "next/navigation";
+import { toast } from "sonner";
 
 const Summary: React.FC = ({}) => {
-  const {} = useSearchParams();
+  const searchParams = useSearchParams();
 
   const products = useCart((state) => state.products);
   const removeAll = useCart((state) => state.removeAll);
@@ -17,6 +18,28 @@ const Summary: React.FC = ({}) => {
   const totalPrice = products.reduce((total, product) => {
     return total + Number(product.price);
   }, 0);
+
+  const onCheckout = async () => {
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
+      {
+        productsId: products.map((product) => product.id),
+      }
+    );
+
+    window.location = response.data.url;
+  };
+
+  React.useEffect(() => {
+    if (searchParams.get("success")) {
+      toast.success("Payment completed.");
+      removeAll();
+    }
+
+    if (searchParams.get("canceled")) {
+      toast.error("Something went wrong...");
+    }
+  }, [searchParams, removeAll]);
 
   return (
     <div className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
