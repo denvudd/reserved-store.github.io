@@ -50,7 +50,13 @@ const Summary: React.FC = ({}) => {
           <Currency price={totalPrice} />
         </div>
       </div>
-      <Button className="w-full mt-6">Checkout</Button>
+      <Button
+        disabled={!products.length}
+        onClick={onCheckout}
+        className="w-full mt-6"
+      >
+        Checkout
+      </Button>
     </div>
   );
 };
